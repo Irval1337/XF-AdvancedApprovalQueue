@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "",
+    "title": "[Irval] Advanced Approval Queue",
+    "description": "Adds the ability to specify the reason for deleting in the approval queue, adds a functional queue for edited threads.",
+    "version_id": 2010000,
+    "version_string": "2.0.1",
+    "dev": "Irval",
+    "dev_url": "https://irval1337.github.io/",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": [],
+    "require": [],
+    "icon": ""
+}

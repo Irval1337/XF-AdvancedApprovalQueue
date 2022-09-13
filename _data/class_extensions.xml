@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class_extensions>
+  <extension from_class="XF\ApprovalQueue\Thread" to_class="Irval\AdvancedApprovalQueue\XF\ApprovalQueue\Thread" execute_order="5" active="1"/>
+  <extension from_class="XF\ApprovalQueue\Post" to_class="Irval\AdvancedApprovalQueue\XF\ApprovalQueue\Post" execute_order="5" active="1"/>
+  <extension from_class="XF\Entity\Thread" to_class="Irval\AdvancedApprovalQueue\XF\Entity\Thread" execute_order="5" active="1"/>
+  <extension from_class="XF\Service\Post\Editor" to_class="Irval\AdvancedApprovalQueue\XF\Service\Post\Editor" execute_order="10" active="1"/>
+</class_extensions>

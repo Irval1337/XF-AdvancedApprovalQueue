@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="approval_queue_macros" modification_key="Irval_aaq_approval_queue_macros_args1" description="Some args" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[arg-unapprovedItem="!" arg-handler="!"]]></find>
+    <replace><![CDATA[$0 arg-content="!"]]></replace>
+  </modification>
+  <modification type="public" template="approval_queue_macros" modification_key="Irval_aaq_approval_queue_macros_args2" description="Some args" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[arg-handler="{$handler}"]]></find>
+    <replace><![CDATA[$0 arg-content="{$content}"]]></replace>
+  </modification>
+  <modification type="public" template="approval_queue_macros" modification_key="Irval_aaq_approval_queue_macros" description="Add disapproving with a custom reason" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:option value="{$action}" checked="{{ !$action ? 'checked' : '' }}" data-xf-click="approval-control">{$label}</xf:option>]]></find>
+    <replace><![CDATA[<xf:set var="$threadClass" value="\XF\Entity\UsernameChange"/>
+	<xf:if is="$action == 'delete' && !$content instanceof $threadClass">
+		<xf:if is="$content.isModeratedDueEdit()">
+		    <xf:option value="delete" label="{{ phrase('Irval_aaq_remove_edit') }}" data-xf-click="approval-control"/>
+		<xf:else/>
+		    <xf:option value="delete" label="{{ phrase('Irval_aaq_remove_with_reason') }}" data-xf-click="approval-control">
+		        <xf:textbox name="reason[{$unapprovedItem.content_type}][{$unapprovedItem.content_id}]"
+			    maxlength="100"
+			    placeholder="{{ phrase('optional') }}" />
+		        <xf:html>
+		            <div class="formRow-explain">{{ phrase('this_will_be_shown_to_user_if_provided') }}</div>
+		        </xf:html>
+		    </xf:option>
+		</xf:if>
+	<xf:else/>
+	$0
+	</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="approval_queue_macros" modification_key="Irval_aaq_approval_queue_macros_cb" description="Add checkbox" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[</xf:radio>]]></find>
+    <replace><![CDATA[$0<xf:set var="$threadClass" value="\XF\Entity\UsernameChange"/>
+	<xf:if is="!$content instanceof $threadClass">
+        <xf:if is="$content.isModeratedDueEdit()">
+            <xf:checkbox style="margin-top: 25px;">
+				<xf:option name="move[{$unapprovedItem.content_type}][{$unapprovedItem.content_id}]" value="1" checked="{{ false }}">
+					{{ phrase('Irval_aaq_move_to_archive') }}
+				</xf:option>
+			</xf:checkbox>
+        </xf:if>
+	</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="approval_item_thread" modification_key="Irval_aaq_approval_item_thread" description="Phrase for edited threads" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="approval_queue_macros" name="item_message_type"
+	arg-content="{$content}"
+	arg-user="{$content.User}"
+	arg-messageHtml="{$messageHtml}"
+	arg-typePhraseHtml="{{ phrase('thread') }}"
+	arg-spamDetails="{$spamDetails}"
+	arg-unapprovedItem="{$unapprovedItem}"
+	arg-handler="{$handler}"
+	arg-headerPhraseHtml="{{ phrase('thread_x_posted_in_forum_y', {
+		'threadLink': link('threads', $content),
+		'threadTitle': $content.title,
+		'forumLink': link('forums', $content.Forum),
+		'forumTitle': $content.Forum.title
+	}) }}"/>]]></find>
+    <replace><![CDATA[<xf:if is="$content.isModeratedDueEdit()">
+		<xf:macro template="approval_queue_macros" name="item_message_type"
+	arg-content="{$content}"
+	arg-user="{$content.User}"
+	arg-messageHtml="{$messageHtml}"
+	arg-typePhraseHtml="{{ phrase('thread') }}"
+	arg-spamDetails="{$spamDetails}"
+	arg-unapprovedItem="{$unapprovedItem}"
+	arg-handler="{$handler}"
+	arg-headerPhraseHtml="{{ phrase('Irval_aaq_thread_x_in_forum_y_edited', {
+		'threadLink': link('threads', $content),
+		'threadTitle': $content.title,
+		'forumLink': link('forums', $content.Forum),
+		'forumTitle': $content.Forum.title
+	}) }}"/>
+	<xf:else/>
+	$0
+	</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="approval_queue_macros" modification_key="Irval_aaq_approval_queue_macros_comp" description="Compare with old versions" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<article class="message-body">{$messageHtml|raw}</article>]]></find>
+    <replace><![CDATA[<xf:set var="$threadClass" value="\XF\Entity\UsernameChange"/>
+	<xf:if is="!$content instanceof $threadClass">
+		<xf:if is="$content.isModeratedDueEdit()">
+			<ul class="diffList">
+				<xf:foreach loop="$content.getDifferences()" value="$diff">
+					<xf:set var="$diffHtml">{{ $diff.1|join('<br />') }}</xf:set>
+					<li class="diffList-line diffList-line--{$diff.0}">{{ trim($diffHtml) !== '' ? $diffHtml : '&nbsp;' }}</li>
+				</xf:foreach>
+			</ul>
+		<xf:else/>
+		    $0
+		</xf:if>
+	<xf:else/>
+		$0
+	</xf:if>]]></replace>
+  </modification>
+
+  <modification type="public" template="approval_queue" modification_key="Irval_aaq_approval_queue_css" description="Add comparing css" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:css src="approval_queue.less" />]]></find>
+    <replace><![CDATA[<xf:css src="public:diff.less" />$0]]></replace>
+
+  </modification>
+</template_modifications>

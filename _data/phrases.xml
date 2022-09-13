@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="Irval_aaq_remove_with_reason" version_id="1000000" version_string="1.0.0"><![CDATA[Удалить с причиной:]]></phrase>
+  <phrase title="permission.forum_Irval_aaq_editNoApproval" version_id="2000000" version_string="2.0.0"><![CDATA[Can edit thread without approving]]></phrase>
+  <phrase title="Irval_aaq_remove_edit" version_id="2000000" version_string="2.0.0"><![CDATA[Отклонить изменения]]></phrase>
+  <phrase title="Irval_aaq_thread_x_in_forum_y_edited" version_id="2000000" version_string="2.0.0"><![CDATA[Тема <a href="{threadLink}">{threadTitle}</a> в разделе <a href="{forumLink}">{forumTitle}</a> отредактирована]]></phrase>
+  <phrase title="Irval_aaq_move_to_archive" version_id="2000000" version_string="2.0.0"><![CDATA[Переместить в архив]]></phrase>
+  <phrase title="option_explain.Irval_aaq_archive_forum" version_id="2000000" version_string="2.0.0"><![CDATA[Выберите форум, используемый в качестве архива.]]></phrase>
+  <phrase title="option.Irval_aaq_archive_forum" version_id="2000000" version_string="2.0.0"><![CDATA[Архив]]></phrase>
+  <phrase title="option_group.Irval_aaq_archive" version_id="2000000" version_string="2.0.0"><![CDATA[Работа с архивом]]></phrase>
+  <phrase title="option_group_description.Irval_aaq_archive" version_id="2000000" version_string="2.0.0"><![CDATA[]]></phrase>
+</phrases>

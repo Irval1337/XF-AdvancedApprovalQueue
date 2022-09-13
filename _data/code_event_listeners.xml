@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_event_listeners>
+    <listener event_id="thread_entity_structure" execute_order="10" callback_class="Irval\AdvancedApprovalQueue\Listener" callback_method="threadEntityStructure" active="1" description="Add moderated due edit field."/>
+</code_event_listeners>
