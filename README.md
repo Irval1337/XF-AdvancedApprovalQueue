@@ -1,1 +1,8 @@
-# XF-AdvancedApprovalQueue
+## XF-AdvancedApprovalQueue
+Плагин для Xenforo 2.1+, позволяющий расширить возможности очереди премодерации тем и ответов.
+
+#### Основные функции:
+- Темы и посты могут быть удалены с указанием причины непосредственно из очереди премодерации:
+![image](https://user-images.githubusercontent.com/56792892/189993990-c3eec619-75c5-4cbd-ad6b-b56347f272e7.png)
+- Добавлено право "Can edit thread without approving", без которого все темы при редактировании отправляются на повторную премодерацию с отображением изменений:
+![image](https://user-images.githubusercontent.com/56792892/189993831-23335dc3-4662-4682-907e-e8a104513872.png)
