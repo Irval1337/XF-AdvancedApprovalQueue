@@ -3,7 +3,7 @@
     "src/addons/Irval/AdvancedApprovalQueue/Listener.php": "0ca1691668afceba62a180118d3aa28abbeebeea5e779466655ad80cc800a781",
     "src/addons/Irval/AdvancedApprovalQueue/Setup.php": "3f6b73ff3fc58cc8b07ec929c0956aedf93b336c09c1a2b6100310776101bd15",
     "src/addons/Irval/AdvancedApprovalQueue/XF/ApprovalQueue/Post.php": "a291dc763d464289d650c0ced51bda19ef90e2963501144aab5fe2775f4e25f0",
-    "src/addons/Irval/AdvancedApprovalQueue/XF/ApprovalQueue/Thread.php": "7779c8ad3dc265700e1b1d1d41d9414077f915d852d3b63b273a68c252d4771a",
+    "src/addons/Irval/AdvancedApprovalQueue/XF/ApprovalQueue/Thread.php": "c46b73791bad5909fe18ac0d82c086e16dc6f3cfe5836b8609654e493c20f741",
     "src/addons/Irval/AdvancedApprovalQueue/XF/Entity/Thread.php": "9b4b2da5c20e386dbf556e15faee9f3e20e31d9bf616ae9e44b6ec60799c59ad",
     "src/addons/Irval/AdvancedApprovalQueue/XF/Service/Post/Editor.php": "b9e546f6b28498c276d5e0e7c22b487d1909d2bd3721f9cc774876b0626d40bc",
     "src/addons/Irval/AdvancedApprovalQueue/_data/activity_summary_definitions.xml": "99d8c2563a31320d66f958fc8bda78613545f5f7959bb3cf5318805e3a3c39d2",
