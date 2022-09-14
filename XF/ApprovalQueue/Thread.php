@@ -21,9 +21,7 @@ class Thread extends XFCP_Thread
 			$historyRepo = \XF::app()->repository('XF:EditHistory');
 			$historyRepo->revertToHistory($historyFinder->fetchOne());
 
-			$approver = \XF::service('XF:Thread\Approver', $thread);
-			$approver->approve();
-
+			$thread->discussion_state = 'visible';
 			$thread->setModeratedDueEdit(false);
 			$thread->save();
 
@@ -54,7 +52,12 @@ class Thread extends XFCP_Thread
 
 	public function actionApprove(\XF\Entity\Thread $thread)
 	{
-		parent::actionApprove($thread);
+		if ($thread->isModeratedDueEdit()) {
+			parent::actionApprove($thread);
+		}
+		else {
+			$thread->discussion_state = 'visible';
+		}
 		$thread->setModeratedDueEdit(false);
 		$thread->save();
 
